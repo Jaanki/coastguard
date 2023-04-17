@@ -1,0 +1,24 @@
+---
+name: Unit Tests
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    tags:
+      - 'v**'
+
+permissions: {}
+
+jobs:
+  unit-testing:
+    name: Go Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+
+      - name: Run Go unit tests
+        run: |
+          set -o pipefail
+          make unit

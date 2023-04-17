@@ -1,8 +1,0 @@
-dist: xenial
-language: go
-
-git:
-  depth: 1
-
-script:
-  - make validate e2e status=keep
